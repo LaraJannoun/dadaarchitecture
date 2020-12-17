@@ -35,7 +35,7 @@
             <img class="first" src="{{ asset('assets/images/first_proj.png') }}" alt="tri">
         </div>
         <div class="grid-item image-container architecture">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/Thumbnail2.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">El Darwish Villa at Al Khessa</h6>   
@@ -44,7 +44,7 @@
             </a>
         </div>
         <div class="grid-item image-container landscape">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-9.png') }}" alt="Lanoir Shop at Pearl">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Lanoir Shop at Pearl</h6>   
@@ -53,7 +53,7 @@
             </a>
         </div>
         <div class="grid-item image-container interiors">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-2.png') }}" alt="Private Loft Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Loft Lebanon</h6>   
@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="grid-item image-container architecture">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-3.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Villa Lebanon</h6>   
@@ -71,7 +71,7 @@
             </a>
         </div>
         <div class="grid-item image-container architecture">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-4.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Villa Lebanon</h6>   
@@ -80,7 +80,7 @@
             </a>
         </div>
         <div class="grid-item image-container architecture">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-5.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Villa Lebanon</h6>   
@@ -89,7 +89,7 @@
             </a>
         </div>
         <div class="grid-item image-container interiors">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-6.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Villa Lebanon</h6>   
@@ -98,7 +98,7 @@
             </a>
         </div>
         <div class="grid-item image-container landscape">
-            <a href="/dadaarchitecture/public/projects/1">
+            <a href="{{ route('project', 1) }}">
                 <img class="project-image" src="{{ asset('assets/images/temp/asset-7.png') }}" alt="Private Villa Lebanon">
                 <div class="project-desc pl-3">
                     <h6 class="text-bold pt-3">Private Villa Lebanon</h6>   
