@@ -94,7 +94,7 @@
                 </a>
             </div>
             <div class="col align-middle">
-                <a href="/dadaarchitecture/public/projects">
+                <a href="{{ route('projects') }}">
                     <div class="pagination-icon margin-auto">
                         <i class="fa fa-th"></i>
                     </div>
