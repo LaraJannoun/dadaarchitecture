@@ -5,7 +5,7 @@
     <div class="services-container-banner"></div>
     <div class="container">
         <div class="text-center">
-            DADA Design & Architecture provide a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.
+            DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.
         </div>
         <div class="text-center images-container">
             <h2 class="page-sub-title">WE ARE BEST IN</h2>

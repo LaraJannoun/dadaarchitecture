@@ -4,24 +4,24 @@
         <title>DADA | {{ $page_title }}</title>
         <meta charset="utf-8">
         <meta name="title" content="DADA Architecture">
-        <meta name="description" content="DADA Design & Architecture provide a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.">
+        <meta name="description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta name="keywords" content="Architecture, Interiors, Landscape">
         <meta name="author" content="Dada Architecture">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="image" content="{{ asset('assets/images/profile-banner.png') }}">
 
         <meta property="og:title" content="DADA Architecture">
-        <meta property="og:description" content="DADA Design & Architecture provide a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.">
+        <meta property="og:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta property="og:image" content="{{ asset('assets/images/profile-banner.png') }}">
         <meta name="og:card" content="dada_image">
 
         <meta name="twitter:title" content="DADA Architecture">
-        <meta name="twitter:description" content="DADA Design & Architecture provide a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.">
+        <meta name="twitter:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta name="twitter:image" content="{{ asset('assets/images/profile-banner.png') }}">
         <meta name="twitter:card" content="dada_image">
 
         <meta name="fb:title" content="DADA Architecture">
-        <meta name="fb:description" content="DADA Design & Architecture provide a comprehensive range of design-build services including architecture, interior design, landscape design and contracting.">
+        <meta name="fb:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta name="fb:image" content="{{ asset('assets/images/profile-banner.png') }}">
         <meta name="fb:card" content="dada_image">
 
