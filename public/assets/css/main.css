@@ -343,7 +343,7 @@ ul {
     width: 50%;
     z-index: 4;
     left: 0;
-    cursor: url(../images/s_left.gif), e-resize;
+    cursor: url(../images/s_left.cur), e-resize;
     top: 0;
     height: 100vh;
 }
@@ -353,7 +353,7 @@ ul {
     width: 50%;
     z-index: 4;
     right: 0;
-    cursor: url(../images/s_right.gif), e-resize;
+    cursor: url(../images/s_right.cur), e-resize;
     top: 0;
     height: 100vh;
 }
