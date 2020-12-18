@@ -301,7 +301,7 @@ ul {
     /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
     /* Add a pointer on hover */
-    opacity: .1;
+    opacity: .2;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
 }
 
