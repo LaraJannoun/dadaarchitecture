@@ -32,7 +32,7 @@
     <div class="grid">
         <div class="grid-sizer"></div>
         <div class="grid-item first-image">
-            <img class="first" src="{{ asset('assets/images/first_proj.png') }}" alt="tri">
+            <img class="first" src="{{ asset('assets/images/first_proj.png') }}" alt="El Darwish Villa at Al Khessa">
         </div>
         <div class="grid-item image-container architecture">
             <a href="{{ route('project', 1) }}">

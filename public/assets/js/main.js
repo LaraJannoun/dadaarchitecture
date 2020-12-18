@@ -1,3 +1,8 @@
+$(window).on('load', function(){
+    // init Isotope after all images have loaded
+    isoTopeRefresh();
+});
+
 // If element is scrolled into view, fade it in
 $(window).scroll(function() {
     $('.scroll-animations .animated').each(function() {
@@ -134,9 +139,6 @@ $(document).ready(function() {
     $(".move-to-top").click(function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    // init Isotope after all images have loaded
-    isoTopeRefresh();
 });
 
 // Check if element is scrolled into view
