@@ -38,9 +38,6 @@ class AdminRequest extends FormRequest
             ],
             'password' => [
                 $this->route()->admin ? 'nullable' : 'required', 'confirmed', 'min:8'
-            ],
-            'roles' => [
-                'required'
             ]
         ];
     }

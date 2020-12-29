@@ -37,6 +37,7 @@ class AdminController extends Controller
     public function create()
     {
         $page_info = $this->page_info();
+
         return view('cms.pages.'.$page_info['link'].'.create', compact('page_info'));
     }
 
@@ -60,6 +61,7 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
         $page_info = $this->page_info();
+
         return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'admin'));
     }
 
