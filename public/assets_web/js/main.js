@@ -22,13 +22,17 @@ $(document).scroll(function() {
 });
 
 $(document).ready(function() {
-    const slider = $(".slider-images-container");
-    const projectDetailSlider = $(".slider-project-images-container");
+    const verslider = $(".ver-slider-images-container");
+    const horslider = $(".hor-slider-images-container");
 
-    slider.each(function() {
+    const projectDetailSlider = $(".slider-project-images-container");
+    
+    verslider.each(function() {
         $(this).slick({
+            vertical: true,
+            verticalSwiping: true,
             dots: true,
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 3000,
             infinite: true,
             arrows: true,
@@ -37,6 +41,72 @@ $(document).ready(function() {
             nextArrow: $('.left-arrow')
         });
     })
+
+    horslider.each(function() {
+        $(this).slick({
+            vertical: false,
+            verticalSwiping: false,
+            dots: false,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            infinite: true,
+            arrows: true,
+            pauseOnHover: false,
+            prevArrow: $('.right-arrow'),
+            nextArrow: $('.left-arrow')
+        });
+    })
+
+    //Implementing navigation of slides using mouse scroll
+    horslider.each(function() {
+        $(this).on("wheel", (function(e) {
+            e.preventDefault();
+
+            verslider.css('zIndex', '15');
+            horslider.css('zIndex', '10');
+
+            if(e.originalEvent.deltaY < 0) {
+                $(this).slick("slickNext");
+                verslider.slick("slickNext");
+            } else {
+                $(this).slick("slickPrev");
+                verslider.slick("slickPrev");
+            }
+        }));
+    });
+
+    //Implementing navigation of slides using mouse scroll
+    verslider.each(function() {
+        $(this).on("wheel", (function(e) {
+            e.preventDefault();
+
+            verslider.css('zIndex', '15');
+            horslider.css('zIndex', '10');
+
+            if(e.originalEvent.deltaY < 0) {
+                $(this).slick("slickNext");
+                horslider.slick("slickNext");
+            } else {
+                $(this).slick("slickPrev");
+                horslider.slick("slickPrev");
+            }            
+        }));
+    });
+
+    $('.left-arrow').on('click', (function(e) {
+        verslider.css('zIndex', '10');
+        horslider.css('zIndex', '15');
+
+        verslider.slick('slickNext')
+    }));
+
+    $('.right-arrow').on('click', (function(e) {
+        verslider.css('zIndex', '10');
+        horslider.css('zIndex', '15');
+        
+        verslider.slick('slickPrev');
+    }));
+
 
     projectDetailSlider.each(function() {
         $(this).slick({
@@ -53,23 +123,21 @@ $(document).ready(function() {
     var $animatingElements = $('div.slider-object[data-slick-index="' + 0 + '"]').find('[data-animation]');
     doAnimations($animatingElements);
 
-    $(".slider-images-container").each(function() {
+    $(".ver-slider-images-container").each(function() {
         $(this).on('beforeChange', function(e, slick, currentSlide, nextSlide) {
             var $animatingElements = $('div.slider-object[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
             doAnimations($animatingElements);
         });
     });
-    //Implementing navigation of slides using mouse scroll
-    slider.each(function() {
-        $(this).on("wheel", (function(e) {
-            e.preventDefault();
-            if (e.originalEvent.deltaY < 0) {
-                $(this).slick("slickNext");
-            } else {
-                $(this).slick("slickPrev");
-            }
-        }));
+
+    $(".hor-slider-images-container").each(function() {
+        $(this).on('beforeChange', function(e, slick, currentSlide, nextSlide) {
+            var $animatingElements = $('div.slider-object[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+            doAnimations($animatingElements);
+        });
     });
+
+
 
     //Implementing navigation of slides using mouse scroll
     projectDetailSlider.each(function() {
