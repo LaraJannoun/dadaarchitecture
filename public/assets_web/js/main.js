@@ -27,8 +27,6 @@ $(document).ready(function() {
 
     slider.each(function() {
         $(this).slick({
-            verticalSwiping: true,
-            vertical: true,
             dots: true,
             autoplay: true,
             autoplaySpeed: 3000,
