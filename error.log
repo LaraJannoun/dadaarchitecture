@@ -1,0 +1,24 @@
+[Thu Dec 17 15:28:16.426376 2020] [access_compat:error] [pid 5806] [client 77.42.219.134:59727] AH01797: client denied by server configuration: /home/dada/public_html/composer.json
+[Thu Dec 17 15:28:16.426962 2020] [access_compat:error] [pid 5806] [client 77.42.219.134:59727] AH01797: client denied by server configuration: /home/dada/public_html/artisan
+[Thu Dec 17 15:28:16.427593 2020] [access_compat:error] [pid 5806] [client 77.42.219.134:59727] AH01797: client denied by server configuration: /home/dada/public_html/README.md
+[Thu Dec 17 15:28:16.427811 2020] [access_compat:error] [pid 5806] [client 77.42.219.134:59727] AH01797: client denied by server configuration: /home/dada/public_html/composer.lock
+[Thu Dec 17 15:28:16.427829 2020] [access_compat:error] [pid 5806] [client 77.42.219.134:59727] AH01797: client denied by server configuration: /home/dada/public_html/package.json
+[Thu Dec 17 15:29:55.067903 2020] [access_compat:error] [pid 5848] [client 77.42.219.134:55894] AH01797: client denied by server configuration: /home/dada/public_html/composer.json
+[Thu Dec 17 15:29:55.068772 2020] [access_compat:error] [pid 5848] [client 77.42.219.134:55894] AH01797: client denied by server configuration: /home/dada/public_html/artisan
+[Thu Dec 17 15:29:55.069616 2020] [access_compat:error] [pid 5848] [client 77.42.219.134:55894] AH01797: client denied by server configuration: /home/dada/public_html/README.md
+[Thu Dec 17 15:29:55.069843 2020] [access_compat:error] [pid 5848] [client 77.42.219.134:55894] AH01797: client denied by server configuration: /home/dada/public_html/composer.lock
+[Thu Dec 17 15:29:55.069872 2020] [access_compat:error] [pid 5848] [client 77.42.219.134:55894] AH01797: client denied by server configuration: /home/dada/public_html/package.json
+[Thu Dec 17 15:30:35.912296 2020] [access_compat:error] [pid 6104] [client 77.42.219.134:56027] AH01797: client denied by server configuration: /home/dada/public_html/composer.json
+[Thu Dec 17 15:30:35.913064 2020] [access_compat:error] [pid 6104] [client 77.42.219.134:56027] AH01797: client denied by server configuration: /home/dada/public_html/artisan
+[Thu Dec 17 15:30:35.913971 2020] [access_compat:error] [pid 6104] [client 77.42.219.134:56027] AH01797: client denied by server configuration: /home/dada/public_html/README.md
+[Thu Dec 17 15:30:35.914199 2020] [access_compat:error] [pid 6104] [client 77.42.219.134:56027] AH01797: client denied by server configuration: /home/dada/public_html/composer.lock
+[Thu Dec 17 15:30:35.914233 2020] [access_compat:error] [pid 6104] [client 77.42.219.134:56027] AH01797: client denied by server configuration: /home/dada/public_html/package.json
+[Thu Dec 17 15:33:36.341232 2020] [access_compat:error] [pid 6670] [client 217.27.176.227:37578] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:33:46.850340 2020] [access_compat:error] [pid 6716] [client 217.27.176.227:40992] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:33:47.849447 2020] [access_compat:error] [pid 6718] [client 217.27.176.227:41050] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:34:31.855192 2020] [access_compat:error] [pid 6739] [client 217.27.176.227:46838] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:34:42.211578 2020] [access_compat:error] [pid 6739] [client 217.27.176.227:55958] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:38:49.662676 2020] [access_compat:error] [pid 7226] [client 185.220.100.250:1660] AH01797: client denied by server configuration: /home/dada/public_html/.env
+[Thu Dec 17 15:38:49.662816 2020] [access_compat:error] [pid 7302] [client 185.220.100.250:31156] AH01797: client denied by server configuration: /home/dada/public_html/public/.git
+[Thu Dec 17 15:39:00.762423 2020] [access_compat:error] [pid 7224] [client 31.220.1.170:37130] AH01797: client denied by server configuration: /home/dada/public_html/.env, referer: http://dadaarchitecture.tedmob.com:80/.env
+[Thu Dec 17 15:39:00.787091 2020] [access_compat:error] [pid 6934] [client 31.220.1.170:37124] AH01797: client denied by server configuration: /home/dada/public_html/public/.git, referer: http://dadaarchitecture.tedmob.com:80/.git/config

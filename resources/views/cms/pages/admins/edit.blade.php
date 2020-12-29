@@ -76,23 +76,6 @@
                                 <label class="form-control-label" for="input-password-confirmation">Confirm Password</label>
                                 <input name="password_confirmation" type="password" id="input-password-confirmation" class="form-control form-control-alternative" placeholder="Confirm Password" value="">
                             </div>
-
-                            {{-- Role --}}
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-roles">Roles <span class="text-danger">*</span></label>
-                                <select class="select2-custom form-control form-custom" name="roles[]" multiple>
-                                    @foreach($roles as $role)
-                                    <option value="{{ $role }}" @if(old('roles')) {{ in_array($role, old('roles')) ? 'selected' : '' }} @else {{ (isset($userRole) && in_array($role, $userRole)) ? 'selected' : '' }} @endif>{{ $role }}</option>
-                                    @endforeach
-                                </select>
-
-                                @if($errors->has('roles'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('roles') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success mt-4">Save</button>
                             </div>

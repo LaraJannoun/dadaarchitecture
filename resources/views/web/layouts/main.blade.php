@@ -8,20 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="image" content="{{ asset('assets_web/images/profile-banner.png') }}">
 
+        <meta property="og:type" content="website">
         <meta property="og:title" content="DADA Architecture">
         <meta property="og:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta property="og:image" content="{{ asset('assets_web/images/profile-banner.png') }}">
-        <meta name="og:card" content="dada_image">
 
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="DADA Architecture">
         <meta name="twitter:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta name="twitter:image" content="{{ asset('assets_web/images/profile-banner.png') }}">
-        <meta name="twitter:card" content="dada_image">
-
-        <meta name="fb:title" content="DADA Architecture">
-        <meta name="fb:description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
-        <meta name="fb:image" content="{{ asset('assets_web/images/profile-banner.png') }}">
-        <meta name="fb:card" content="dada_image">
 
         <link rel="icon" type="image/png" href=""/>
         <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css') }}"/>

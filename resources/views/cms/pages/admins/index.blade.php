@@ -34,7 +34,6 @@
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Roles</th>
                             <th scope="col" class="no-sort">Blocked</th>
                             <th scope="col">Created At</th>
                             <th scope="col" class="no-sort"></th>
@@ -50,14 +49,6 @@
                                 {{ $admin->first_name . ' ' . $admin->last_name }}
                             </td>
                             <td>{{ $admin->email }}</td>
-
-                            <td class="adjust-element">
-                                {{-- All other Roles can not block: Developer --}}
-                                <label class="custom-toggle mb-0">
-                                    <input class="block-js" type="checkbox" value="{{ $admin->id }}" @if($admin->blocked) {{ "checked" }} @endif>
-                                    <span class="custom-toggle-slider rounded-circle"></span>
-                                </label>
-                            </td>
                             <td>{{ date('d M Y - h:i A', strtotime($admin->created_at)) }}</td>
                             <td class="text-right">
                                 <div class="dropdown">
@@ -65,30 +56,28 @@
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            {{-- Admin can not edit himself redirect to profile page --}}
-                                                <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">Edit</a>
-                                            
+                                        {{-- Admin can not edit himself redirect to profile page --}}
+                                            <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">Edit</a>
+                                        {{-- Admin can not delete himself --}}
+                                        @if(Auth::guard('admin')->user()->id != $admin->id)
+                                            <form action="{{ route('admin.'.$page_info['link'].'.destroy', $admin) }}" method="post">
+                                                @csrf
+                                                @method('delete')
 
-                                            {{-- Admin can not delete himself --}}
-                                            @if(Auth::guard('admin')->user()->id != $admin->id)
-                                                    <form action="{{ route('admin.'.$page_info['link'].'.destroy', $admin) }}" method="post">
-                                                        @csrf
-                                                        @method('delete')
+                                                <button type="button" class="dropdown-item" onclick="confirm('Are you sure you want to delete this admin?') ? this.parentElement.submit() : ''">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('admin.'.$page_info['link'].'.destroy', $admin) }}" method="post">
+                                                @csrf
+                                                @method('delete')
 
-                                                        <button type="button" class="dropdown-item" onclick="confirm('Are you sure you want to delete this admin?') ? this.parentElement.submit() : ''">
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                        <form action="{{ route('admin.'.$page_info['link'].'.destroy', $admin) }}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-
-                                                            <button type="button" class="dropdown-item" onclick="confirm('Are you sure you want to delete this admin?') ? this.parentElement.submit() : ''">
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                            @endif
+                                                <button type="button" class="dropdown-item" onclick="confirm('Are you sure you want to delete this admin?') ? this.parentElement.submit() : ''">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                             </td>

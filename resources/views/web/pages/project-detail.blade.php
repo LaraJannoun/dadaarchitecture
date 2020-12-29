@@ -21,17 +21,17 @@
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="http://www.facebook.com/sharer.php?u={{ route('project', $project_detail->slug) }}') " target="_blank" class="mr-2 w-inline-block social-icon facebook">
+                    <a href="http://www.facebook.com/sharer.php?t={{ $project_detail->title }}&u={{ route('project', $project_detail->slug) }}" target="_blank" class="mr-2 w-inline-block social-icon facebook">
                         <i class="fab fa-facebook-f mr-2 ml-2"></i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="http://twitter.com/share?url={{ route('project', $project_detail->slug) }}') " target="_blank" class="mr-2 w-inline-block social-icon twitter">
+                    <a href="http://twitter.com/intent/tweet?text={{ $project_detail->title }}&url={{ route('project', $project_detail->slug) }} " target="_blank" class="mr-2 w-inline-block social-icon twitter">
                         <i class="fab fa-twitter mr-2 ml-2"></i>
                     </a>
                     </li>
                 <li class="list-inline-item no-border">
-                    <a href="http://pinterest.com/pin/create/button/?url={{ route('project', $project_detail->slug) }}') " target="_blank" class="mr-2 w-inline-block social-icon pinterest">
+                    <a href="http://pinterest.com/pin/create/button/?description={{ $project_detail->title }}&url={{ route('project', $project_detail->slug) }} " target="_blank" class="mr-2 w-inline-block social-icon pinterest">
                         <i class="fab fa-pinterest mr-2 ml-2"></i>
                     </a>
                 </li>
