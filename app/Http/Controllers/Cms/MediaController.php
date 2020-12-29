@@ -33,7 +33,7 @@ class MediaController extends Controller
             'image',
             'title',
             'project_id',
-        ])->get();
+        ])->has('Project')->get();
 
         return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
     }

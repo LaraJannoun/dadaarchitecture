@@ -15,7 +15,7 @@ class HomeController extends Controller
         'id', 
         'image', 
         'title'
-        ])->get()->map(function($query){
+        ])->where('publish',1)->get()->map(function($query){
             $query->image = asset($query->image);
             return $query;
         });

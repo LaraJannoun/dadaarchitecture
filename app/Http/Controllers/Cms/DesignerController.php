@@ -34,6 +34,7 @@ class DesignerController extends Controller
             'facebook_link',
             'instagram_link',
             'image',
+            'publish',
             'pos',
         ])->orderBy('pos')->get();
 

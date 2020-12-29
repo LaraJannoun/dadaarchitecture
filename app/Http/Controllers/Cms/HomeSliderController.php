@@ -30,6 +30,7 @@ class HomeSliderController extends Controller
             'id',
             'image',
             'title',
+            'publish',
             'pos'
             ])->orderBy('pos')->get();
 
