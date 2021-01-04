@@ -26,9 +26,6 @@
                             
                             {{-- Title --}}
                             @include('cms.components.inputs.text', ['label' => 'Title', 'name' => 'title'])
-
-                            {{-- Order --}}
-                            @include('cms.components.inputs.number', ['label' => 'Order', 'name' => 'pos'])
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success mt-4">Save</button>
                             </div>
