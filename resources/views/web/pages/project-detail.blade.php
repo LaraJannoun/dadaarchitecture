@@ -6,14 +6,14 @@
     @if(count($media) > 0)
         @foreach($media as $image)
         <div class="slider-object">
-            <img class="slider-image" src="{{ asset($image->image) }}" alt= "{{$image->title}}"/>
+            <img class="slider-image cover" src="{{ asset($image->image) }}" alt= "{{$image->title}}"/>
             <div class="left-arrow"></div>
             <div class="right-arrow"></div>
         </div>
         @endforeach
         @else
         <div class="slider-object">
-            <img class="slider-image" src="{{ asset($project_detail->main_image) }}" alt= "{{$project_detail->title}}"/>
+            <img class="slider-image cover" src="{{ asset($project_detail->main_image) }}" alt= "{{$project_detail->title}}"/>
             <div class="left-arrow"></div>
             <div class="right-arrow"></div>
         </div>
