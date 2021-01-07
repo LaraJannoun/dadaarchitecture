@@ -3,6 +3,13 @@
     <head>
         <title>DADA | {{ $page_title }}</title>
         <meta charset="utf-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets_web/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets_web/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets_web/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
         <meta name="title" content="DADA Architecture">
         <meta name="description" content="DADA Design & Architecture provides a comprehensive range of design-build services including architecture, interior design, landscape design, and contracting.">
         <meta name="viewport" content="width=device-width, initial-scale=1">

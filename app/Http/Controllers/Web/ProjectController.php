@@ -49,6 +49,7 @@ class ProjectController extends Controller
             'category_id',
             'title',
             'description',
+            'main_image',
             'client',
             'date',
             'status',
