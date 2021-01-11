@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+$(window).on('load', function() {
     // init Isotope after all images have loaded
     isoTopeRefresh();
 });
@@ -26,7 +26,7 @@ $(document).ready(function() {
     const horslider = $(".hor-slider-images-container");
 
     const projectDetailSlider = $(".slider-project-images-container");
-    
+
     verslider.each(function() {
         $(this).slick({
             vertical: true,
@@ -65,7 +65,7 @@ $(document).ready(function() {
             verslider.css('zIndex', '15');
             horslider.css('zIndex', '10');
 
-            if(e.originalEvent.deltaY < 0) {
+            if (e.originalEvent.deltaY < 0) {
                 $(this).slick("slickNext");
                 verslider.slick("slickNext");
             } else {
@@ -83,13 +83,13 @@ $(document).ready(function() {
             verslider.css('zIndex', '15');
             horslider.css('zIndex', '10');
 
-            if(e.originalEvent.deltaY < 0) {
+            if (e.originalEvent.deltaY < 0) {
                 $(this).slick("slickNext");
                 horslider.slick("slickNext");
             } else {
                 $(this).slick("slickPrev");
                 horslider.slick("slickPrev");
-            }            
+            }
         }));
     });
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
     $('.right-arrow').on('click', (function(e) {
         verslider.css('zIndex', '10');
         horslider.css('zIndex', '15');
-        
+
         verslider.slick('slickPrev');
     }));
 
@@ -137,19 +137,17 @@ $(document).ready(function() {
         });
     });
 
-
-
-    //Implementing navigation of slides using mouse scroll
-    projectDetailSlider.each(function() {
-        $(this).on("wheel", (function(e) {
-            e.preventDefault();
-            if (e.originalEvent.deltaY < 0) {
-                $(this).slick("slickNext");
-            } else {
-                $(this).slick("slickPrev");
-            }
-        }));
-    });
+    // //Implementing navigation of slides using mouse scroll
+    // projectDetailSlider.each(function() {
+    //     $(this).on("wheel", (function(e) {
+    //         e.preventDefault();
+    //         if (e.originalEvent.deltaY < 0) {
+    //             $(this).slick("slickNext");
+    //         } else {
+    //             $(this).slick("slickPrev");
+    //         }
+    //     }));
+    // });
 
     $('.burger').each(function() {
         $(this).click(function() {

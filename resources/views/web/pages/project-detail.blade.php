@@ -1,19 +1,19 @@
 @extends('web.layouts.main')
- 
+
 @section('content')
 <div class="project-container-background">
     <div class="slider-project-images-container">
-    @if(count($media) > 0)
+        @if(count($media) > 0)
         @foreach($media as $image)
         <div class="slider-object">
-            <img class="slider-image cover" src="{{ asset($image->image) }}" alt= "{{$image->title}}"/>
+            <img class="slider-image cover" src="{{ asset($image->image) }}" alt="{{$image->title}}" />
             <div class="left-arrow"></div>
             <div class="right-arrow"></div>
         </div>
         @endforeach
         @else
         <div class="slider-object">
-            <img class="slider-image cover" src="{{ asset($project_detail->main_image) }}" alt= "{{$project_detail->title}}"/>
+            <img class="slider-image cover" src="{{ asset($project_detail->main_image) }}" alt="{{$project_detail->title}}" />
             <div class="left-arrow"></div>
             <div class="right-arrow"></div>
         </div>
@@ -37,7 +37,7 @@
                     <a href="http://twitter.com/intent/tweet?text={{ $project_detail->title }}&url={{ route('project', $project_detail->slug) }} " target="_blank" class="mr-2 w-inline-block social-icon twitter">
                         <i class="fab fa-twitter mr-2 ml-2"></i>
                     </a>
-                    </li>
+                </li>
                 <li class="list-inline-item no-border">
                     <a href="http://pinterest.com/pin/create/button/?description={{ $project_detail->title }}&url={{ route('project', $project_detail->slug) }} " target="_blank" class="mr-2 w-inline-block social-icon pinterest">
                         <i class="fab fa-pinterest mr-2 ml-2"></i>
@@ -71,18 +71,18 @@
             </div>
         </div>
         <div class="row pagination-container">
-        @php
-        $previous = '';
-        $next = '';
-        if(count($previous_next) == 2){
+            @php
+            $previous = '';
+            $next = '';
+            if(count($previous_next) == 2){
             $previous = $previous_next[0]->slug;
             $next = $previous_next[1]->slug;
-        }
-        if(count($previous_next) == 1){
+            }
+            if(count($previous_next) == 1){
             $previous = '';
             $next = $previous_next[0]->slug;
-        }
-        @endphp
+            }
+            @endphp
             <div class="col">
                 @if($previous != '')
                 <a href="{{route('project', $previous)}}">
@@ -100,7 +100,7 @@
                 </a>
             </div>
             <div class="col">
-            <a href="{{route('project', $next)}}">
+                <a href="{{route('project', $next)}}">
                     <div class="pagination-icon float-right">
                         <i class="fa fa-angle-right"></i>
                     </div>

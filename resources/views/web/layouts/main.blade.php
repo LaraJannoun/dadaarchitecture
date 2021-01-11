@@ -57,7 +57,7 @@
     <script src="{{ asset('assets_web/libraries/isotope/isotope.pkgd.min.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ asset('assets_web/libraries/slick-1.8.1/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
     @stack('script')
-    <script src="{{ asset('assets_web/js/main.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('assets_web/js/main.js') }}" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
