@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\CMS;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class MediaController extends Controller
             'project_id',
         ])->has('Project')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
     }
 
     /**
@@ -45,7 +46,7 @@ class MediaController extends Controller
     public function show($id)
     {
         $page_info = $this->page_info();
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -57,7 +58,7 @@ class MediaController extends Controller
         $page_info = $this->page_info();
         $projects = Project::select(['id', 'title'])->get();
 
-        return view('cms.pages.'.$page_info['link'].'.create', compact('page_info', 'projects'));
+        return view('cms.pages.' . $page_info['link'] . '.create', compact('page_info', 'projects'));
     }
 
     /**
@@ -68,7 +69,7 @@ class MediaController extends Controller
     {
         $page_info = $this->page_info();
         $this->validate($request, [
-            'image' => 'required|mimes:png,jpg,jpeg|max:500'
+            'image' => 'required|mimes:png,jpg,jpeg|max:2000'
         ]);
 
         $row = new Media;
@@ -78,7 +79,7 @@ class MediaController extends Controller
 
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully created.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully created.');
     }
 
     /**
@@ -91,7 +92,7 @@ class MediaController extends Controller
         $projects = Project::select(['id', 'title'])->get();
 
         $row = Media::findOrFail($id);
-        return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'row', 'projects'));
+        return view('cms.pages.' . $page_info['link'] . '.edit', compact('page_info', 'row', 'projects'));
     }
 
     /**
@@ -106,18 +107,18 @@ class MediaController extends Controller
         $row->title = $request->title;
         // Check if the image exists
         $image_path = $row['image'];
-        if($request->image){
+        if ($request->image) {
             $this->validate($request, [
-                'image' => 'required|mimes:png,jpg,jpeg|max:500'
+                'image' => 'required|mimes:png,jpg,jpeg|max:2000'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->image);
         }
-        
+
         $row->image = $image_path;
         $row->project_id = $request->project_id;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully updated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully updated.');
     }
 
     /**
@@ -131,7 +132,7 @@ class MediaController extends Controller
         $row = Media::findOrFail($id);
         $row->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -142,15 +143,14 @@ class MediaController extends Controller
     {
         $page_info = $this->page_info();
 
-        if(empty($request['bulk-delete'])){
-            return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('No Records have been deleted.');
+        if (empty($request['bulk-delete'])) {
+            return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('No Records have been deleted.');
         }
 
         $ids = explode(',', $request['bulk-delete']);
 
         $row = Media::whereIn('id', $ids)->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
-
 }

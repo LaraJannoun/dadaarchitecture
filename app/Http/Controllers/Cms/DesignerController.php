@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\CMS;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class DesignerController extends Controller
             'pos',
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
     }
 
     /**
@@ -50,7 +51,7 @@ class DesignerController extends Controller
         $page_info = $this->page_info();
         $row = Designer::findOrFail($id);
 
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -60,7 +61,7 @@ class DesignerController extends Controller
     public function create()
     {
         $page_info = $this->page_info();
-        return view('cms.pages.'.$page_info['link'].'.create', compact('page_info'));
+        return view('cms.pages.' . $page_info['link'] . '.create', compact('page_info'));
     }
 
     /**
@@ -71,7 +72,7 @@ class DesignerController extends Controller
     {
         $page_info = $this->page_info();
         $this->validate($request, [
-            'image' => 'required|mimes:png,jpg,jpeg|max:500'
+            'image' => 'required|mimes:png,jpg,jpeg|max:2000'
         ]);
 
         $row = new Designer;
@@ -84,7 +85,7 @@ class DesignerController extends Controller
 
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully created.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully created.');
     }
 
     /**
@@ -96,7 +97,7 @@ class DesignerController extends Controller
         $page_info = $this->page_info();
 
         $row = Designer::findOrFail($id);
-        return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.edit', compact('page_info', 'row'));
     }
 
     /**
@@ -113,16 +114,16 @@ class DesignerController extends Controller
         $row->facebook_link = $request->facebook_link;
         $row->instagram_link = $request->instagram_link;
         $image_path = $row['image'];
-        if($request->image){
+        if ($request->image) {
             $this->validate($request, [
-                'image' => 'required|mimes:png,jpg,jpeg|max:500'
+                'image' => 'required|mimes:png,jpg,jpeg|max:2000'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->image);
         }
         $row->image = $image_path;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully updated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully updated.');
     }
 
     /**
@@ -136,7 +137,7 @@ class DesignerController extends Controller
         $row = Designer::findOrFail($id);
         $row->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -152,7 +153,7 @@ class DesignerController extends Controller
             'name'
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.order', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.order', compact('page_info', 'rows'));
     }
 
     /**
@@ -169,7 +170,7 @@ class DesignerController extends Controller
             $row->save();
         }
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Records successfully ordered.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Records successfully ordered.');
     }
 
     /**
@@ -192,15 +193,14 @@ class DesignerController extends Controller
     {
         $page_info = $this->page_info();
 
-        if(empty($request['bulk-delete'])){
-            return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('No Records have been deleted.');
+        if (empty($request['bulk-delete'])) {
+            return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('No Records have been deleted.');
         }
 
         $ids = explode(',', $request['bulk-delete']);
 
         $row = Designer::whereIn('id', $ids)->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
-
 }

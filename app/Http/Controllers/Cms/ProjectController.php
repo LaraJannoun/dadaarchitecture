@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\CMS;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class ProjectController extends Controller
             'publish'
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
     }
 
     /**
@@ -54,7 +55,7 @@ class ProjectController extends Controller
         $page_info = $this->page_info();
         $row = Project::findOrFail($id);
 
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -66,7 +67,7 @@ class ProjectController extends Controller
         $page_info = $this->page_info();
         $categories = Category::select(['id', 'title'])->get();
 
-        return view('cms.pages.'.$page_info['link'].'.create', compact('page_info', 'categories'));
+        return view('cms.pages.' . $page_info['link'] . '.create', compact('page_info', 'categories'));
     }
 
     /**
@@ -78,8 +79,8 @@ class ProjectController extends Controller
         $page_info = $this->page_info();
 
         $this->validate($request, [
-            'slug' => 'required|unique:'.$page_info['table_name'],
-            'main_image' => 'required|mimes:png,jpg,jpeg|max:500',
+            'slug' => 'required|unique:' . $page_info['table_name'],
+            'main_image' => 'required|mimes:png,jpg,jpeg|max:2000',
             'title' => 'required'
         ]);
 
@@ -94,7 +95,7 @@ class ProjectController extends Controller
         $row->status = $request->status;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully created.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully created.');
     }
 
     /**
@@ -108,7 +109,7 @@ class ProjectController extends Controller
         $row = Project::findOrFail($id);
         $categories = Category::select(['id', 'title'])->get();
 
-        return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'row', 'categories'));
+        return view('cms.pages.' . $page_info['link'] . '.edit', compact('page_info', 'row', 'categories'));
     }
 
     /**
@@ -124,15 +125,15 @@ class ProjectController extends Controller
         $row->date = parent::store_date($request->date);
         // Check if the image exists
         $image_path = $row['main_image'];
-        if($request->main_image){
+        if ($request->main_image) {
             $this->validate($request, [
-                'slug' => 'required|unique:'.$page_info['table_name'].',slug,'.$row->id,
-                'main_image' => 'required|mimes:png,jpg,jpeg|max:500',
+                'slug' => 'required|unique:' . $page_info['table_name'] . ',slug,' . $row->id,
+                'main_image' => 'required|mimes:png,jpg,jpeg|max:2000',
                 'title' => 'required'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->main_image);
         }
-        
+
         $row->main_image = $image_path;
         $row->title = $request->title;
         $row->description = $request->description;
@@ -141,7 +142,7 @@ class ProjectController extends Controller
         $row->category_id = $request->category_id;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully updated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully updated.');
     }
 
     /**
@@ -157,7 +158,7 @@ class ProjectController extends Controller
         $row->save();
         $row->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -167,15 +168,15 @@ class ProjectController extends Controller
     public function bulk_delete(Request $request)
     {
         $page_info = $this->page_info();
-        if(empty($request['bulk-delete'])){
-            return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('No Records have been deleted.');
+        if (empty($request['bulk-delete'])) {
+            return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('No Records have been deleted.');
         }
 
         $ids = explode(',', $request['bulk-delete']);
 
         $row = Project::whereIn('id', $ids)->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -192,7 +193,7 @@ class ProjectController extends Controller
         $replicate->publish = 0;
         $replicate->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully replicated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully replicated.');
     }
 
     /**
@@ -228,7 +229,7 @@ class ProjectController extends Controller
             'publish'
         ])->onlyTrashed()->orderBy('date', 'desc')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.trash', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.trash', compact('page_info', 'rows'));
     }
 
     /**
@@ -241,7 +242,7 @@ class ProjectController extends Controller
 
         $row = Project::withTrashed()->findOrFail($id);
 
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -254,7 +255,7 @@ class ProjectController extends Controller
 
         $row = Project::withTrashed()->findOrFail($id)->restore();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully restored.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully restored.');
     }
 
     /**
@@ -267,7 +268,7 @@ class ProjectController extends Controller
 
         $row = Project::withTrashed()->findOrFail($id)->forceDelete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.trash')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.trash')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -284,7 +285,7 @@ class ProjectController extends Controller
             'main_image',
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.order', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.order', compact('page_info', 'rows'));
     }
 
     /**
@@ -301,7 +302,6 @@ class ProjectController extends Controller
             $row->save();
         }
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Records successfully ordered.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Records successfully ordered.');
     }
-
 }

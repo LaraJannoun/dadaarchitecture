@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\CMS;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class ClientController extends Controller
             'pos'
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
     }
 
     /**
@@ -45,7 +46,7 @@ class ClientController extends Controller
     {
         $page_info = $this->page_info();
         $row = Client::findOrFail($id);
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -55,7 +56,7 @@ class ClientController extends Controller
     public function create()
     {
         $page_info = $this->page_info();
-        return view('cms.pages.'.$page_info['link'].'.create', compact('page_info'));
+        return view('cms.pages.' . $page_info['link'] . '.create', compact('page_info'));
     }
 
     /**
@@ -67,7 +68,7 @@ class ClientController extends Controller
         $page_info = $this->page_info();
 
         $this->validate($request, [
-            'image' => 'required|mimes:png,jpg,jpeg|max:500'
+            'image' => 'required|mimes:png,jpg,jpeg|max:2000'
         ]);
 
         $row = new Client;
@@ -75,7 +76,7 @@ class ClientController extends Controller
         $row->image = parent::store_file($page_info['link'], $request->image);
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully created.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully created.');
     }
 
     /**
@@ -86,7 +87,7 @@ class ClientController extends Controller
     {
         $page_info = $this->page_info();
         $row = Client::findOrFail($id);
-        return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.edit', compact('page_info', 'row'));
     }
 
     /**
@@ -98,9 +99,9 @@ class ClientController extends Controller
         $page_info = $this->page_info();
         $row = Client::findOrFail($id);
         $image_path = $row['image'];
-        if($request->image){
+        if ($request->image) {
             $this->validate($request, [
-                'image' => 'required|mimes:png,jpg,jpeg|max:500'
+                'image' => 'required|mimes:png,jpg,jpeg|max:2000'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->image);
         }
@@ -109,7 +110,7 @@ class ClientController extends Controller
         $row->title = $request->title;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully updated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully updated.');
     }
 
     /**
@@ -120,7 +121,7 @@ class ClientController extends Controller
     {
         $page_info = $this->page_info();
         Client::findOrFail($id)->delete();
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -137,7 +138,7 @@ class ClientController extends Controller
             'image'
         ])->orderBy('pos')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.order', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.order', compact('page_info', 'rows'));
     }
 
     /**
@@ -154,7 +155,7 @@ class ClientController extends Controller
             $row->save();
         }
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Records successfully ordered.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Records successfully ordered.');
     }
 
     /**

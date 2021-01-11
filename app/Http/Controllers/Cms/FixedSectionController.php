@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\CMS;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class FixedSectionController extends Controller
             'text'
         ])->orderBy('slug', 'asc')->get();
 
-        return view('cms.pages.'.$page_info['link'].'.index', compact('page_info', 'rows'));
+        return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
     }
 
     /**
@@ -49,7 +50,7 @@ class FixedSectionController extends Controller
 
         $row = FixedSection::findOrFail($id);
 
-        return view('cms.pages.'.$page_info['link'].'.show', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.show', compact('page_info', 'row'));
     }
 
     /**
@@ -59,7 +60,7 @@ class FixedSectionController extends Controller
     public function create()
     {
         $page_info = $this->page_info();
-        return view('cms.pages.'.$page_info['link'].'.create', compact('page_info'));
+        return view('cms.pages.' . $page_info['link'] . '.create', compact('page_info'));
     }
 
     /**
@@ -71,13 +72,13 @@ class FixedSectionController extends Controller
         $page_info = $this->page_info();
 
         $this->validate($request, [
-            'slug' => 'required|unique:'.$page_info['table_name']
+            'slug' => 'required|unique:' . $page_info['table_name']
         ]);
 
         $image_path = null;
-        if($request->image){
+        if ($request->image) {
             $this->validate($request, [
-                'image' => 'required|mimes:png,jpg,jpeg|max:500'
+                'image' => 'required|mimes:png,jpg,jpeg|max:2000'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->image);
         }
@@ -89,7 +90,7 @@ class FixedSectionController extends Controller
         $row->text = $request->text;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully created.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully created.');
     }
 
     /**
@@ -101,7 +102,7 @@ class FixedSectionController extends Controller
         $page_info = $this->page_info();
 
         $row = FixedSection::findOrFail($id);
-        return view('cms.pages.'.$page_info['link'].'.edit', compact('page_info', 'row'));
+        return view('cms.pages.' . $page_info['link'] . '.edit', compact('page_info', 'row'));
     }
 
     /**
@@ -116,19 +117,19 @@ class FixedSectionController extends Controller
 
         // Check if the image exists
         $image_path = $row['image'];
-        if($request->image){
+        if ($request->image) {
             $this->validate($request, [
-                'image' => 'required|mimes:png,jpg,jpeg|max:500'
+                'image' => 'required|mimes:png,jpg,jpeg|max:2000'
             ]);
             $image_path = parent::store_file($page_info['link'], $request->image);
         }
-        
+
         $row->image = $image_path;
         $row->title = $request->title;
         $row->text = $request->text;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully updated.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully updated.');
     }
 
     /**
@@ -141,7 +142,7 @@ class FixedSectionController extends Controller
 
         FixedSection::findOrFail($id)->delete();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
 
     /**
@@ -156,7 +157,6 @@ class FixedSectionController extends Controller
         $row->image = null;
         $row->save();
 
-        return redirect()->route('admin.'.$page_info['link'].'.index')->withStatus('Record successfully deleted.');
+        return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
     }
-
 }
