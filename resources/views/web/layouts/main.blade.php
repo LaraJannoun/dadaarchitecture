@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/libraries/fontawesome-free-5.15.1-web/css/all.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/fonts/lekton/stylesheet.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/libraries/animate.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/css/main.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_web/css/main.min.css') }}?v=2.0" />
 </head>
 
 <body>
