@@ -35,6 +35,7 @@
                             <th scope="col">Title</th>
                             <th scope="col" class="no-sort">Image</th>
                             <th scope="col">Project</th>
+                            <th scope="col" class="no-sort">Fit</th>
                             <th scope="col" class="no-sort"></th>
                         </tr>
                     </thead>
@@ -44,6 +45,12 @@
                             <td>{{ $row->title }}</td>
                             <td><img src="{{ asset($row->image) }}" class="img-thumbnail"></td>
                             <td>{{ $row->Project->title }}</td>
+                            <td class="adjust-element">
+                                <label class="custom-toggle mb-0">
+                                    <input class="fit-js" type="checkbox" value="{{ $row->id }}" @if($row->fit) {{ "checked" }} @endif>
+                                    <span class="custom-toggle-slider rounded-circle"></span>
+                                </label>
+                            </td>
                             <td class="text-right">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,3 +81,18 @@
     @include('cms.layouts.footers.auth')
 </div>
 @endsection
+@push('script')
+<script type="text/javascript">
+    $('.fit-js').change(function() {
+        var $this = $(this);
+        $.ajax({
+            type: "post",
+            url: "{{ route('admin.'.$page_info['link'].'.makeTheImageFit') }}",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "id": $this.val()
+            }
+        });
+    });
+</script>
+@endpush

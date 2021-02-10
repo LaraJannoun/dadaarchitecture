@@ -34,6 +34,7 @@ class MediaController extends Controller
             'image',
             'title',
             'project_id',
+            'fit',
         ])->has('Project')->get();
 
         return view('cms.pages.' . $page_info['link'] . '.index', compact('page_info', 'rows'));
@@ -152,5 +153,17 @@ class MediaController extends Controller
         $row = Media::whereIn('id', $ids)->delete();
 
         return redirect()->route('admin.' . $page_info['link'] . '.index')->withStatus('Record successfully deleted.');
+    }
+
+    /**
+     * make an image fit to screen
+     *
+     */
+    public function makeTheImageFit(Request $request)
+    {
+        $id = $request['id'];
+        $row = Media::findOrFail($id);
+        $row->fit = !$row->fit;
+        $row->save();
     }
 }

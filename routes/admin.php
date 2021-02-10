@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function(){
+Route::get('/admin', function () {
 	return redirect(route('admin.login'));
 });
 
@@ -33,7 +33,6 @@ Route::middleware('guest:admin')->prefix('admin')->namespace('App\Http\Controlle
 	// ADMIN LOGIN ROUTE
 	Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 	Route::post('login', 'Auth\LoginController@login');
-
 });
 /*
 |--------------------------------------------------------------------------
@@ -91,12 +90,15 @@ Route::middleware('auth:admin')->prefix('admin')->namespace('App\Http\Controller
 	Route::get('home-slider/order', 'HomeSliderController@order')->name('home-slider.order');
 	Route::post('home-slider/order', 'HomeSliderController@orderSubmit');
 	Route::resource('home-slider', 'HomeSliderController');
-	
+
 
 	// CATEGORIES
 	Route::resource('categories', 'CategoryController');
 
 	// MEDIA
+	Route::prefix('media')->name('media.')->group(function () {
+		Route::post('/makeTheImageFit', 'MediaController@makeTheImageFit')->name('makeTheImageFit');
+	});
 	Route::resource('media', 'MediaController');
 
 	// FIXED SECTIONS
