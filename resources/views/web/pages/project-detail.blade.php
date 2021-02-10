@@ -6,7 +6,7 @@
         @if(count($media) > 0)
         @foreach($media as $image)
         <div class="slider-object">
-            <img class="slider-image @if($image->fit == 0) contain @endif" src="{{ asset($image->image) }}" alt="{{$image->title}}" />
+            <img class="slider-image @if($image->fit == 0) contain @else cover @endif" src="{{ asset($image->image) }}" alt="{{$image->title}}" />
             <div class="left-arrow"></div>
             <div class="right-arrow"></div>
         </div>
