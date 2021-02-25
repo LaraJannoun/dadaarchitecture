@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="project-container-background">
-    <div class="slider-project-images-container">
+    <div class="slider-project-images-container bg-white">
         @if(count($media) > 0)
         @foreach($media as $image)
         <div class="slider-object">
